@@ -5,6 +5,9 @@ import TrustedBy from './components/TrustedBy';
 import Services from './components/services';
 import OurWork from './components/OurWork';
 import Team from './components/Team';
+import ContactUs from './components/ContactUs';
+import {Toaster} from 'react-hot-toast';
+import Footer from './components/footer';
 
 const App = () => {
 
@@ -13,12 +16,15 @@ const App = () => {
 
   return (
     <div className='dark:bg-black relative'>
+      <Toaster/>
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero/>
       <TrustedBy/>
       <Services/>
       <OurWork/>
       <Team/>
+      <ContactUs/>
+      <Footer theme={theme} />
     </div>
   )
 }
