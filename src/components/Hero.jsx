@@ -1,26 +1,51 @@
 
 import assets from '../assets/assets';
+import { motion } from 'motion/react'
 
 const Hero = () => {
   return (
     <div id='hero' className='flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white '>
 
-      <div>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: "0.7" }}
+        viewport={{ once: true }}
+
+        className='flex flex-col sm:flex-row items-center gap-4 bg-gray-200 dark:bg-gray-800/50 px-4 sm:px-6 py-2 rounded-full border border-gray-300 dark:border-gray-600'>
         <img src={assets.group_profile} alt="" className='w-30 ' />
         <p className='text-xs font-medium'>Trusted by 10k+ people</p>
-      </div>
+      </motion.div>
 
-      <h1 className='
-        text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-23.75 max-w-5xl'>Turning imagination into 
+      <motion.h1
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: "0.8" }}
+        viewport={{ once: true }}
+
+        className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-23.75 max-w-5xl'>Turning imagination into
         <span className='bg-linear-to-r from-primary to-[#4d8cea] bg-clip-text text-transparent'>
-        digital</span> impact.</h1>
+          digital</span> impact.</motion.h1>
 
-        <p className='text-sm sm:text-lg font-medium text-gray-500 dark:text-white/75 max-w-4/5 sm:max-w-lg pb-3'>Creating meaningful digital experiences that resonate.</p>
+      <motion.p
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: "1" }}
+        viewport={{ once: true }}
 
-        <div className='relative'>
-          <img src={assets.hero_img} className="w-full max-w-6xl" alt="" />
-          <img src={assets.bgImage1} alt="" className='absolute top-0 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden' />
-        </div>
+        className='text-sm sm:text-lg font-medium text-gray-500 dark:text-white/75 max-w-4/5 sm:max-w-lg pb-3'>Creating meaningful digital experiences that resonate.
+      </motion.p>
+
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: "1.2" }}
+        viewport={{ once: true }}
+      
+      className='relative'>
+        <img src={assets.hero_img} className="w-full max-w-6xl" alt="" />
+        <img src={assets.bgImage1} alt="" className='absolute top-0 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden' />
+      </motion.div>
 
     </div>
   )
