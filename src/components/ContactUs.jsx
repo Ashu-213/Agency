@@ -2,7 +2,7 @@ import assets from "../assets/assets"
 import Title from "./Title"
 import { useState } from "react"
 import toast from "react-hot-toast"
-
+import { motion } from "motion/react"
 
 const ContactUs = () => {
   const onsubmit = async (event) => {
@@ -35,10 +35,22 @@ const ContactUs = () => {
   }
 
   return (
-    <div id='ContactUs' className='w-full flex flex-col items-center dark:text-white text-gray-700 pt-30 sm:px-12 lg:px-24 xl:px-40 py-20 px-4 gap-7'>
+    <motion.div
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.2 }}
+
+    id='contact-us' className='w-full flex flex-col items-center dark:text-white text-gray-700 pt-30 sm:px-12 lg:px-24 xl:px-40 py-20 px-4 gap-7'>
       <Title title='Reach Out to Us' desc='Get in touch with our team for any inquiries or support.' />
 
-      <form onSubmit={onsubmit} className="w-lg grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.form 
+      initial={{opacity:0, y:30}}
+      whileInView={{opacity:1, y:0}}
+      transition={{duration:0.5 ,delay:0.4}}
+      viewport={{once:true}}
+
+      onSubmit={onsubmit} className="w-lg grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <div>
           <p className="mb-2 text-sm font-medium">Your Name</p>
@@ -69,8 +81,8 @@ const ContactUs = () => {
 
         </button>
 
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   )
 }
 

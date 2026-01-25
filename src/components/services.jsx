@@ -26,7 +26,13 @@ const Services = () => {
     ]
 
     return (
-        <div id='services' className='flex flex-col items-center px-4 sm:px-12 lg:px-24 xl:px-40 gap-10 text-gray-700 dark:text-white/80 py-20 w-full'>
+        <motion.div 
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true}}
+        transition={{staggerChildren: 0.2}}
+        
+        id='services' className='flex flex-col items-center px-4 sm:px-12 lg:px-24 xl:px-40 gap-10 text-gray-700 dark:text-white/80 py-20 w-full'>
             <img src={assets.bgImage2} alt="" className='dark:hidden absolute -top-110 -left-70 -z-10'/>
             <Title title="how can we help you?" desc="Discover our range of services designed to elevate your brand and drive success." />
 
@@ -35,7 +41,7 @@ const Services = () => {
                 return <ServiceCard key={index} Service={service} index={index}/>
                })}
             </div>
-        </div>
+        </motion.div>
     )
 }
 
